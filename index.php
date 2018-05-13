@@ -1,7 +1,6 @@
 <?php
-
-require 'Form.php';
-require 'BootsrapForm.php';
+require 'class/Autoloader.php';
+Autoloader::register();
 $form = new BootsrapForm();
 ?>
 <!DOCTYPE html>

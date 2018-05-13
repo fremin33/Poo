@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Form
+ * class Form
  * Permet de générer un formulaire facilement et rapidement
  */
 class Form
