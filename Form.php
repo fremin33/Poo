@@ -9,7 +9,7 @@ class Form
     /**
      * @var array Données utilisées par le formulaire
      */
-    private $data;
+    protected $data;
     /**
      * @var string Tag utilisé pour entouré les champs
      */
@@ -47,7 +47,7 @@ class Form
      * @param $html string code html à entouré
      * @return string
      */
-    private function surround($html)
+    protected function surround($html)
     {
         return "<{$this->surround}>{$html}</{$this->surround}>";
     }
@@ -56,7 +56,7 @@ class Form
      * @param $index string Index de la valeur à récupérer
      * @return mixed|null
      */
-    private function getValue($index)
+    protected function getValue($index)
     {
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }

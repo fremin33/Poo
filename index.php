@@ -1,21 +1,30 @@
 <?php
 
 require 'Form.php';
-require 'Text.php';
-require 'Personnage.php';
+require 'BootsrapForm.php';
+$form = new BootsrapForm();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
 
-$merlin = new Personnage('merlin');
-$merlin->regenerer();
-var_dump($merlin);
+<body>
+<form action="#" method="post">
+    <?= $form->input('Username') ?>
+    <?= $form->input('Password') ?>
+    <?= $form->submit() ?>
+</form>
+</body>
+</html>
 
-$form = new Form(array(
-    'username' => 'Roger'
-));
 
-
-/* Création de 2 champs */
-echo $form->input('username');
-echo $form->input('password');
-echo $form->submit();
-
-var_dump(Text::publicWithZero(9));
