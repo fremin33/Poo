@@ -1,5 +1,7 @@
 <?php
 
+namespace Tutoriel\HTML;
+
 /**
  * class Form
  * Permet de générer un formulaire facilement et rapidement
@@ -59,5 +61,11 @@ class Form
     protected function getValue($index)
     {
         return isset($this->data[$index]) ? $this->data[$index] : null;
+    }
+
+
+    public function date() {
+        /* On utilise le \ pour charger la class Date de PHP*/
+        new \DateTime();
     }
 }

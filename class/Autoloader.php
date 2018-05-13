@@ -1,5 +1,7 @@
 <?php
 
+namespace Tutoriel;
+
 /**
  * Class Autoloader
  * Permet de charger les autres Class
@@ -22,7 +24,13 @@ class Autoloader
      */
     static function autoload($className)
     {
-        require "class/{$className}.php";
+        /* On vérifie que le namespace chargé est bien à la même position que Tutoriel*/
+        if (strpos($className, __NAMESPACE__) === 0) {
+            /* On modifie les \ par des / (namespace path) et on supprime le namespace global Tutoriel */
+            $className = str_replace(__NAMESPACE__ . '\\', '', $className);
+            $className = str_replace('\\', '/', $className);
+            require "class/{$className}.php";
+        }
     }
 
 

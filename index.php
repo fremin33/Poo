@@ -1,4 +1,8 @@
 <?php
+
+use \Tutoriel\Autoloader;
+use \Tutoriel\HTML\BootsrapForm;
+
 require 'class/Autoloader.php';
 Autoloader::register();
 $form = new BootsrapForm();
@@ -22,6 +26,7 @@ $form = new BootsrapForm();
     <?= $form->input('Username') ?>
     <?= $form->input('Password') ?>
     <?= $form->submit() ?>
+    <?= $form->date() ?>
 </form>
 </body>
 </html>

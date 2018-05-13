@@ -1,4 +1,5 @@
 <?php
+namespace Tutoriel;
 
 /* Définition d'une class */
 

@@ -1,5 +1,6 @@
 <?php
 
+namespace Tutoriel\HTML;
 class BootsrapForm extends Form
 {
 
