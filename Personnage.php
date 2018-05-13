@@ -4,6 +4,7 @@
 
 class Personnage
 {
+    const MAX_VIE = 100;
     /* Propriété d'un objet */
     /* 3 niveaux :
         - public : Accessible partout
@@ -12,6 +13,7 @@ class Personnage
     */
     private $vie = 80;
     private $atk = 110;
+
     private $nom;
 
     /* Méthode appelé à la création d'un nouvel objet */
@@ -30,7 +32,7 @@ class Personnage
     {
         /* $this fais référence à l'objet lui même (harry ou merlin)*/
         if (is_null($hp)) {
-            $this->vie = 100;
+            $this->vie = self::MAX_VIE;
         } else {
             $this->vie += $hp;
         }
