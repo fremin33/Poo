@@ -11,10 +11,10 @@ class Personnage
         - private : Accessible depuis la class
         - protected : Accessible depuis la class et les class qui en hérité
     */
-    private $vie = 80;
-    private $atk = 110;
+    protected $vie = 80;
+    protected $atk = 20;
 
-    private $nom;
+    protected $nom;
 
     /* Méthode appelé à la création d'un nouvel objet */
     public function __construct($nom)
@@ -50,7 +50,7 @@ class Personnage
         $cible->empecher_negatif();
     }
 
-    private function empecher_negatif()
+    protected function empecher_negatif()
     {
         if ($this->vie < 0) {
             $this->vie = 0;
