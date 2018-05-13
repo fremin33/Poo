@@ -7,8 +7,6 @@ $merlin = new Personnage('Merlin');
 $harry = new Personnage('Harry');
 
 /* Accées au propriété et méthod de l'objet */
-$merlin->vie;
-$merlin->atk;
 $merlin->crier();
 $merlin->regenerer();
 

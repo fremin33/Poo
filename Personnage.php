@@ -5,9 +5,14 @@
 class Personnage
 {
     /* Propriété d'un objet */
-    public $vie = 80;
-    public $atk = 110;
-    public $nom;
+    /* 3 niveaux :
+        - public : Accessible partout
+        - private : Accessible depuis la class
+        - protected : Accessible depuis la class et les class qui en hérité
+    */
+    private $vie = 80;
+    private $atk = 110;
+    private $nom;
 
     /* Méthode appelé à la création d'un nouvel objet */
     public function __construct($nom)
@@ -37,7 +42,49 @@ class Personnage
     }
 
 
-    public function attack($cible){
+    public function attack($cible)
+    {
         $cible->vie -= $this->atk;
+        $cible->empecher_negatif();
+    }
+
+    private function empecher_negatif()
+    {
+        if ($this->vie < 0) {
+            $this->vie = 0;
+        }
+
+    }
+
+    /* Getter */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    public function getVie()
+    {
+        return $this->vie;
+    }
+
+    public function getAtk()
+    {
+        return $this->atk;
+    }
+
+    /* Setter */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    public function setVie($vie)
+    {
+        $this->vie = $vie;
+    }
+
+    public function setAtk($atk)
+    {
+        $this->atk = $atk;
     }
 }
