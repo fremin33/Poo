@@ -1,24 +1,13 @@
 <?php
 
-require 'Personnage.php';
+require 'Form.php';
 
-/* Création d'un objet personnage */
-$merlin = new Personnage('Merlin');
-$harry = new Personnage('Harry');
+$form = new Form(array(
+    'username' => 'Roger'
+));
 
-/* Accées au propriété et méthod de l'objet */
-$merlin->crier();
-$merlin->regenerer();
 
-/* Affectation de valeur au propriété d'un objet */
-//$merlin->nom = 'Merlin';
-
-$merlin->attack($harry);
-if ($harry->mort()) {
-    echo 'Harry est mort';
-} else {
-    echo 'Harry à survécu';
-}
-
-var_dump($harry);
-var_dump($merlin);
+/* Création de 2 champs */
+echo $form->input('username');
+echo $form->input('password');
+echo $form->submit();
