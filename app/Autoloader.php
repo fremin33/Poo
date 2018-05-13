@@ -1,6 +1,6 @@
 <?php
 
-namespace Tutoriel;
+namespace App;
 
 /**
  * Class Autoloader
@@ -29,21 +29,9 @@ class Autoloader
             /* On modifie les \ par des / (namespace path) et on supprime le namespace global Tutoriel */
             $className = str_replace(__NAMESPACE__ . '\\', '', $className);
             $className = str_replace('\\', '/', $className);
-            require "class/{$className}.php";
+            require __DIR__ . "/{$className}.php";
         }
     }
 
-
-    /**
-     * @param $className string Class à appeler
-     * @todo Appelle les fichiers dans le dossier class mais limité à un autoloader
-     */
-    /*
-    static function __autoload($className)
-    {
-        require "class/{$className}.php";
-
-    }
-    */
 
 }
