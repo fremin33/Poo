@@ -6,7 +6,7 @@ class Article
 
     /**
      * @param $name
-     * @todo Call method if $key is not define (url => getUrl)
+     * @todo Call method if $key is not define (url => getUrl())
      */
     public function __get($key)
     {

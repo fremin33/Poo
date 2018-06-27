@@ -44,7 +44,7 @@ class Database
             /* Diisplay errors */
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             /* Change FetchMode to FetchObj*/
-//            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
+            // $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
 
             $this->pdo = $pdo;
         }
