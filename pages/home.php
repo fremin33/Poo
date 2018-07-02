@@ -1,13 +1,22 @@
-<?php $articles = $db->query('select * from Article', 'App\Table\Article'); ?>
+<?php
+use App\Table\Article;
+use App\Table\Category;
 
-<ul>
-    <?php foreach ($articles as $article) : ?>
-        <li>
-            <a href="<?= $article->url; ?>"><?= $article->title ?></a>
-            <?= $article->excerpt; ?>
-        </li>
-    <?php endforeach; ?>
-</ul>
+$articles = Article::getLast()?>
 
-<h1>Home page</h1>
-<p><a href="?p=single">Single page</a></p>
+<div class="row">
+    <div class="col-sm-8">
+        <?php foreach ($articles as $article): ?>
+            <h2><a href="<?=$article->url;?>"><?=$article->title?></a></h2>
+            <p><em><?=$article->category?> </em></p>
+            <p><?=$article->excerpt?></p>
+        <?php endforeach;?>
+    </div>
+    <div class="col-sm-4">
+        <ul>
+            <?php foreach (Category::all() as $category): ?>
+                <li><a href="<?=$category->url?>"><?=$category->title?></a></li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+</div>

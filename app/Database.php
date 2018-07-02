@@ -56,11 +56,16 @@ class Database
      * @param $statement
      * @return array
      */
-    public function query($statement, $class_name)
+    public function query($statement, $class_name, $one = false)
     {
         $request = $this->getPDO()->query($statement);
+        $request->setFetchMode(PDO::FETCH_CLASS, $class_name);
         /* Associate Class with Table */
-        return $request->fetchAll(PDO::FETCH_CLASS, $class_name);
+        if ($one) {
+            return $request->fetch();
+        } else {
+            return $request->fetchAll();
+        }
     }
 
     public function prepare($statement, $params, $class_name, $one = false)
