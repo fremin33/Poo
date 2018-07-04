@@ -12,3 +12,5 @@ $app = App::getInstance();
 
 $articles = $app->getTable('article');
 $categories = $app->getTable('category');
+
+var_dump($articles->all());

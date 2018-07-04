@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Database;
 
 use \PDO;
 
@@ -8,7 +8,7 @@ use \PDO;
  * Class Database
  * @package App
  */
-class Database
+class MysqlDatabase extends Database
 {
 
     private $db_name;
@@ -56,10 +56,16 @@ class Database
      * @param $statement
      * @return array
      */
-    public function query($statement, $class_name, $one = false)
+    public function query($statement, $class_name = null, $one = false)
     {
         $request = $this->getPDO()->query($statement);
-        $request->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+        if ($class_name === null) {
+            $request->setFetchMode(PDO::FETCH_OBJ);
+        } else {
+            $request->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        }
+
         /* Associate Class with Table */
         if ($one) {
             return $request->fetch();
