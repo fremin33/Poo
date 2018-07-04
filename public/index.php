@@ -8,7 +8,7 @@ use App\Config;
 require '../app/Autoloader.php';
 Autoloader::register();
 
-$config = Config::getInstance();
-
 $app = App::getInstance();
-$app->title = "Titre de test";
+
+$articles = $app->getTable('article');
+$categories = $app->getTable('category');
